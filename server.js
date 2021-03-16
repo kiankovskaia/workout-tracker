@@ -38,7 +38,7 @@ mongoose.connect(
     }
   ).then(() => console.log("connected to DATABASE")).catch(error =>{
     console.log(error)
-    process.exit(1)
+ 
 })
 
 // Require routes
