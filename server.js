@@ -41,13 +41,13 @@ mongoose.connect(
  
 })
 
+// require("./routes/api-routes.js")(app);
+const apiRoutes = require("./routes/workoutRouter");
+app.use(apiRoutes);
+
 // Require routes
 const htmlRoutes = require("./routes/htmlRouter");
 app.use("/", htmlRoutes);
-// require("./routes/api-routes.js")(app);
-const apiRoutes = require("./routes/apiRoutes");
-app.use("/api", apiRoutes);
-
 
 app.listen(port, () => {
     console.log(`listening on port ${port}!`);
