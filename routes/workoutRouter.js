@@ -19,7 +19,7 @@ Router.get("/api/workouts/range", (req, res) => {
 
 // POST a new workout
 Router.post("/api/workouts", (req, res) => {
-  db.Workout.create(req.body)
+  db.Workout.create({})
   .then(response => res.json(response))
   .catch(err => res.json(err))
 });
