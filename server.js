@@ -28,7 +28,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 
 // require("./routes/api-routes.js")(app);
 const workoutRouter = require("./routes/workoutRouter");
-app.use("/api", workoutRouter);
+app.use(workoutRouter);
 
 // Require routes
 const htmlRoutes = require("./routes/htmlRouter");
