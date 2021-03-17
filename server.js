@@ -43,7 +43,7 @@ mongoose.connect(
 
 // require("./routes/api-routes.js")(app);
 const workoutRouter = require("./routes/workoutRouter");
-app.use("/api", apiRoutes);
+app.use("/api", workoutRouter);
 
 // Require routes
 const htmlRoutes = require("./routes/htmlRouter");
