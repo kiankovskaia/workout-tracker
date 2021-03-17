@@ -3,14 +3,26 @@ const db = require("../models");
 
 // Get all workouts
 Router.get("/api/workouts", (req, res) => {
-  db.Workout.find({})
+  db.Workout.aggregate([{
+    $addFields: {
+      totalDuration: {
+        $sum: '$exercises.duration'
+      }
+    }
+  }])
     .then((response) => res.json(response))
     .catch((err) => res.json(err));
 });
 
 // Get all workouts
 Router.get("/api/workouts/range", (req, res) => {
-  db.Workout.find({})
+  db.Workout.aggregate([{
+    $addFields: {
+      totalDuration: {
+        $sum: '$exercises.duration'
+      }
+    }
+  }])
   .sort({day: -1})
   .limit(7)
   .then(response => res.json(response))
