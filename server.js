@@ -38,16 +38,16 @@ mongoose.connect(
     }
   ).then(() => console.log("connected to DATABASE")).catch(error =>{
     console.log(error)
- 
+    process.exit(1)
 })
 
 // require("./routes/api-routes.js")(app);
-const apiRoutes = require("./routes/workoutRouter");
-app.use(apiRoutes);
+const apiRoutes = require("./routes/apiRoutes");
+app.use("/api", apiRoutes);
 
 // Require routes
 const htmlRoutes = require("./routes/htmlRouter");
-app.use("/", htmlRoutes);
+app.use(htmlRoutes);
 
 app.listen(port, () => {
     console.log(`listening on port ${port}!`);
