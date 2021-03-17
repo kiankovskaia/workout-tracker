@@ -24,11 +24,10 @@ Router.post("/workouts", (req, res) => {
   .catch(err => res.json(err))
 });
 
-Router.put("/workouts/:_id", function (req, res) {
+Router.put("/workouts/:id", function (req, res) {
   db.Workout.findByIdAndUpdate(
-    req.params._id,
-    { $push: { exercises: req.body } },
-    { new: true, upsert: true, safe: true })
+    req.params.id,
+    { $push: { exercises: req.body } })
     .then(response => res.json(response))
     .catch(err => res.json(err))
 });
