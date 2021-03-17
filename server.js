@@ -36,10 +36,7 @@ mongoose.connect(
       useCreateIndex: true,
       useFindAndModify: false
     }
-  ).then(() => console.log("connected to DATABASE")).catch(error =>{
-    console.log(error)
-    process.exit(1)
-})
+  )
 
 // require("./routes/api-routes.js")(app);
 const workoutRouter = require("./routes/workoutRouter");
