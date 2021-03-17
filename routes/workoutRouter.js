@@ -2,7 +2,7 @@ const Router = require("express").Router();
 const db = require("../models");
 
 // Get all workouts
-Router.get("workouts", (req, res) => {
+Router.get("/workouts", (req, res) => {
   db.Workout.find({}, (err, data) => {
     if (err) {
       throw err;
@@ -13,7 +13,7 @@ Router.get("workouts", (req, res) => {
 });
 
 // Get all workouts
-Router.get("workouts/range", (req, res) => {
+Router.get("/workouts/range", (req, res) => {
   db.Workout.find({}, (err, data) => {
     if (err) {
       throw err;
@@ -24,7 +24,7 @@ Router.get("workouts/range", (req, res) => {
 });
 
 // POST a new workout
-Router.post("workouts", (req, res) => {
+Router.post("/workouts", (req, res) => {
   db.Workout.create(req.body, (err, data) => {
     if (err) {
       throw err;
@@ -34,7 +34,7 @@ Router.post("workouts", (req, res) => {
   });
 });
 
-Router.put("workouts/:_id", function (req, res) {
+Router.put("/workouts/:_id", function (req, res) {
   db.Workout.findByIdAndUpdate(
     req.params._id,
     { $push: { exercises: req.body } },
